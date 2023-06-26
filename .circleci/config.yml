@@ -17,10 +17,10 @@ jobs:
           name: 
           command: |
             Invoke-WebRequest -Uri https://dot.net/v1/dotnet-install.ps1 -OutFile "$env:temp/dotnet-install.ps1"; powershell -executionpolicy bypass "$env:temp/dotnet-install.ps1" -Channel 6.0
-      - run: dotnet workload list
+      - run: dotnet workload search
       - run: dotnet build src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
       - run: dotnet build src/Auth0.OidcClient.WPF/Auth0.OidcClient.WPF.csproj
       - run: dotnet build src/Auth0.OidcClient.Winforms/Auth0.OidcClient.Winforms.csproj
-      - run: dotnet workload install android
+      - run: dotnet workload install maui.android
       - run: dotnet build src/Auth0.OidcClient.Android/Auth0.OidcClient.Android.csproj
       - run: dotnet build src/Auth0.OidcClient.UWP/Auth0.OidcClient.UWP.csproj
