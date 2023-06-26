@@ -8,6 +8,7 @@ jobs:
     executor:
       name: win/default # executor type
       size: medium # can be medium, large, xlarge, 2xlarge
+      version: 2022.08.1
 
     steps:
       # Commands are run in a Windows virtual machine environment
