@@ -12,6 +12,11 @@ jobs:
     steps:
       # Commands are run in a Windows virtual machine environment
       - checkout
+      - run: 
+          name: 
+          command: |
+            wget https://dot.net/v1/dotnet-install.sh
+            bash dotnet-install.sh -c 6.0
       - run: dotnet workload list
       - run: dotnet build src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
       - run: dotnet build src/Auth0.OidcClient.WPF/Auth0.OidcClient.WPF.csproj
