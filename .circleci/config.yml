@@ -19,6 +19,7 @@ jobs:
             Invoke-WebRequest -Uri https://dot.net/v1/dotnet-install.ps1 -OutFile "$env:temp/dotnet-install.ps1"; powershell -executionpolicy bypass "$env:temp/dotnet-install.ps1" -Channel 6.0
       - run: dotnet workload search
       - run:
+          name:
           command: |
             Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vs_BuildTools.exe" -OutFile "C:\Downloads"
             & "C:\Downloads\vs_BuildTools.exe" --layout .\vs_BuildTools
