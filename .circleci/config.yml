@@ -15,3 +15,5 @@ jobs:
       - run: dotnet build src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
       - run: dotnet build src/Auth0.OidcClient.WPF/Auth0.OidcClient.WPF.csproj
       - run: dotnet build src/Auth0.OidcClient.Winforms/Auth0.OidcClient.Winforms.csproj
+      - run: dotnet build src/Auth0.OidcClient.UWP/Auth0.OidcClient.UWP.csproj
+      - run: dotnet build src/Auth0.OidcClient.Android/Auth0.OidcClient.Android.csproj
