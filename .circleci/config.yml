@@ -15,8 +15,7 @@ jobs:
       - run: 
           name: 
           command: |
-            wget https://dot.net/v1/dotnet-install.sh
-            bash dotnet-install.sh -c 6.0
+            Invoke-WebRequest -Uri https://dot.net/v1/dotnet-install.ps1 -OutFile "$env:temp/dotnet-install.ps1"; powershell -executionpolicy bypass "$env:temp/dotnet-install.ps1" -Channel 6.0
       - run: dotnet workload list
       - run: dotnet build src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
       - run: dotnet build src/Auth0.OidcClient.WPF/Auth0.OidcClient.WPF.csproj
