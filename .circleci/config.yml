@@ -17,6 +17,7 @@ jobs:
           command: |
             Invoke-WebRequest -Uri https://dot.net/v1/dotnet-install.ps1 -OutFile "$env:temp/dotnet-install.ps1"; powershell -executionpolicy bypass "$env:temp/dotnet-install.ps1" -Channel 6.0
       - run: Get-ChildItem -Path "C:\Program Files\dotnet\sdk"
+      - run: Get-ChildItem -Path "C:\"
       - run: Get-ChildItem -Path "C:\Program Files (x86)\dotnet\sdk"
       - run: Get-ChildItem -Path "C:\Program Files(x86)\dotnet\sdk"
       - run: dotnet build src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
