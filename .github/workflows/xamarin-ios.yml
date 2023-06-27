@@ -27,6 +27,7 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '6.0.x'
+    - run: brew install --cask android-commandlinetools
     - run: ls /Library/Android/sdk
     - run: sdkmanager --list
     
