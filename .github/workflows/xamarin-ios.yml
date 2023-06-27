@@ -28,10 +28,7 @@ jobs:
       with:
         dotnet-version: '6.0.x'
     - run: brew install --cask android-commandlinetools
-    - run: ls /Library/Android/sdk
     - run: sdkmanager --list
-    
-    - run: which sdkmanager
     - run: sdkmanager "platform-tools" "platforms;android-26"
     - name: Install Core dependencies
       run: nuget restore src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
