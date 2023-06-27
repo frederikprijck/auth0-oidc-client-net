@@ -29,6 +29,9 @@ jobs:
         dotnet-version: '6.0.x'
     - run: brew install --cask temurin
     - run: brew install --cask android-commandlinetools
+    - run: ls -lsa /usr/local/Cellar/
+    - run: ls -lsa /usr/local/opt/
+    - run: ls -lsa /usr/local/bin/
     - run: java -version
     - run: javac -version
     - run: sdkmanager --list
