@@ -13,6 +13,9 @@ jobs:
     steps:
       # Commands are run in a Windows virtual machine environment
       - checkout
+      - run: ls "C:\Program Files (x86)"
+      - run: ls "C:\Program Files (x86)\Microsoft Visual Studio"
+      - run: ls "C:\Program Files (x86)\Microsoft Visual Studio\Installer"
       - run: 
           name: 
           command: |
