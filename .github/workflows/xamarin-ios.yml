@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - run:  ls /Applications
+    - run:  ls /Library/Frameworks/Xamarin.Android.framework/Versions/
     - name: Set default Xamarin SDK versions
       run: |
         $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=15.8 --android=10.2
