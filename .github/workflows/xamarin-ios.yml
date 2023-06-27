@@ -15,7 +15,7 @@ jobs:
     - run:  ls /Applications
     - name: Set default Xamarin SDK versions
       run: |
-        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=15.8
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=15.8 --android=10.2
     
     - name: Set default Xcode 14.2
       run: |
@@ -28,14 +28,20 @@ jobs:
       with:
         dotnet-version: '6.0.x'
 
-    - name: Install dependencies
+    - name: Install Core dependencies
       run: nuget restore src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
 
-    - name: Build
+    - name: Build Core
       run: msbuild src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
       
-    - name: Install dependencies
+    - name: Install iOS dependencies
       run: nuget restore src/Auth0.OidcClient.iOS/Auth0.OidcClient.iOS.csproj
 
-    - name: Build
+    - name: Build iOS
       run: msbuild src/Auth0.OidcClient.iOS/Auth0.OidcClient.iOS.csproj
+      
+    - name: Install Android dependencies
+      run: nuget restore src/Auth0.OidcClient.Android/Auth0.OidcClient.Android.csproj
+
+    - name: Build Android
+      run: msbuild src/Auth0.OidcClient.Android/Auth0.OidcClient.Android.csproj
