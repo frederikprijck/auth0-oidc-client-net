@@ -1,6 +1,10 @@
 name: Build Xamarin.iOS app
 
 on: [push]
+on:
+  push:
+    branches:
+      - ga-project-setup
 
 jobs:
   build:
