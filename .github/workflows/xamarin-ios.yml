@@ -33,6 +33,9 @@ jobs:
     - run: ls -lsa /usr/local/opt/
     - run: ls -lsa /usr/local/bin/
     - run: export JAVA_HOME="$JAVA_HOME_17_X64"
+    - name: "Set environmental variables"
+      run: |
+        echo "JAVA_HOME=$JAVA_HOME_17_X64" >> $GITHUB_ENV
     - run: env
     - run: java -version
     - run: javac -version
