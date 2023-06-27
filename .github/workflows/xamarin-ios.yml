@@ -36,6 +36,7 @@ jobs:
     - run: java -version
     - run: yes | sdkmanager --licenses
     - run: sdkmanager "platform-tools" "platforms;android-26"
+    - run: ls /Users/runner/Library/Android/sdk/platforms
     - name: Install Core dependencies
       run: nuget restore src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
 
