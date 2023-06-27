@@ -24,7 +24,7 @@ jobs:
             Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vs_BuildTools.exe" -OutFile "C:\vs_BuildTools.exe"
             cd "C:\"
             & "./vs_BuildTools.exe" --layout .\vs_BuildTools
-            ls "vs_BuildTools"
+            ls "."
             cd "vs_BuildTools"
             & "./vs_setup.exe" --nocache --wait --noUpdateInstaller --noWeb --allWorkloads --includeRecommended --includeOptional --quiet --norestart
       - run: dotnet build src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
