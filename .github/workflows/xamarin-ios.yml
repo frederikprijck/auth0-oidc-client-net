@@ -32,6 +32,7 @@ jobs:
     - run: ls -lsa /usr/local/Cellar/
     - run: ls -lsa /usr/local/opt/
     - run: ls -lsa /usr/local/bin/
+    - run: export JAVA_HOME="$JAVA_HOME_17_X64"
     - run: env
     - run: java -version
     - run: javac -version
