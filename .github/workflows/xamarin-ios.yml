@@ -29,7 +29,7 @@ jobs:
         dotnet-version: '6.0.x'
 
     - name: Install dependencies
-      run: dotnet restore src/Auth0.OidcClient.iOS/Auth0.OidcClient.iOS.csproj
+      run: nuget restore src/Auth0.OidcClient.iOS/Auth0.OidcClient.iOS.csproj
 
     - name: Build
-      run: dotnet build src/Auth0.OidcClient.iOS/Auth0.OidcClient.iOS.csproj
+      run: msbuild src/Auth0.OidcClient.iOS/Auth0.OidcClient.iOS.csproj /p:Configuration=Debug /p:Platform=AnyCPU /t:Rebuild
