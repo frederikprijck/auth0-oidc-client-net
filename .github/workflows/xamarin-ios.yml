@@ -15,7 +15,7 @@ jobs:
     - run:  ls /Library/Frameworks/Xamarin.Android.framework/Versions/
     - name: Set default Xamarin SDK versions
       run: |
-        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=15.8 --android=10.2
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=15.8 --android=12.3
     
     - name: Set default Xcode 14.2
       run: |
