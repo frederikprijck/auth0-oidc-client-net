@@ -27,9 +27,6 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '6.0.x'
-
-    
-    - run: ls /usr/local/bin/sdkmanager
     - run: ls /Library/Android/sdk
     - run: sdkmanager --list
     
