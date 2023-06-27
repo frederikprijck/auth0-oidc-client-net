@@ -28,6 +28,14 @@ jobs:
       with:
         dotnet-version: '6.0.x'
 
+    - run: which sdkmanager
+    
+    - run: ls /usr/local/bin/sdkmanager
+    - run: ls /Library/Android/sdk
+    - run: sdkmanager --list
+    
+    - run: which sdkmanager
+    - run: sdkmanager "platform-tools" "platforms;android-26"
     - name: Install Core dependencies
       run: nuget restore src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
 
