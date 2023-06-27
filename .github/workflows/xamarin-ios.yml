@@ -27,6 +27,7 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '6.0.x'
+    - run: brew install --cask temurin
     - run: brew install --cask android-commandlinetools
     - run: sdkmanager --list
     - run: sdkmanager "platform-tools" "platforms;android-26"
