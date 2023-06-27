@@ -22,8 +22,10 @@ jobs:
           name:
           command: |
             Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vs_BuildTools.exe" -OutFile "C:\Downloads"
-            & "C:\Downloads\vs_BuildTools.exe" --layout .\vs_BuildTools
-            & "./vs_BuildTools/vs_setup.exe" --nocache --wait --noUpdateInstaller --noWeb --allWorkloads --includeRecommended --includeOptional --quiet --norestart
+            cd C:\Downloads
+            & "./vs_BuildTools.exe" --layout .\vs_BuildTools
+            cd vs_BuildTool
+            & "./vs_setup.exe" --nocache --wait --noUpdateInstaller --noWeb --allWorkloads --includeRecommended --includeOptional --quiet --norestart
       - run: dotnet build src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
       - run: dotnet build src/Auth0.OidcClient.WPF/Auth0.OidcClient.WPF.csproj
       - run: dotnet build src/Auth0.OidcClient.Winforms/Auth0.OidcClient.Winforms.csproj
