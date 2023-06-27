@@ -34,7 +34,7 @@ jobs:
         echo "JAVA_HOME=$JAVA_HOME_17_X64" >> $GITHUB_ENV
     - run: env
     - run: java -version
-    - run: sdkmanager --licenses
+    - run: yes | sdkmanager --licenses
     - run: sdkmanager "platform-tools" "platforms;android-26"
     - name: Install Core dependencies
       run: nuget restore src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
