@@ -13,9 +13,6 @@ jobs:
     steps:
       # Commands are run in a Windows virtual machine environment
       - checkout
-      - run: ls "C:\Program Files (x86)"
-      - run: ls "C:\Program Files (x86)\Microsoft Visual Studio"
-      - run: ls "C:\Program Files (x86)\Microsoft Visual Studio\Installer"
       - run: 
           name: 
           command: |
@@ -24,8 +21,9 @@ jobs:
       - run:
           name:
           command: |
-            cd "C:\Program Files (x86)\Microsoft Visual Studio\Installer"
-            & "./setup.exe" --nocache --wait --noUpdateInstaller --noWeb --allWorkloads --includeRecommended --includeOptional --quiet --norestart
+            Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vs_community.exe" -OutFile "C:\vs_community.exe"
+            cd "C:\"
+            & "./vs_community.exe" --nocache --wait --noUpdateInstaller --noWeb --allWorkloads --includeRecommended --includeOptional --quiet --norestart
       - run: dotnet build src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
       - run: dotnet build src/Auth0.OidcClient.WPF/Auth0.OidcClient.WPF.csproj
       - run: dotnet build src/Auth0.OidcClient.Winforms/Auth0.OidcClient.Winforms.csproj
