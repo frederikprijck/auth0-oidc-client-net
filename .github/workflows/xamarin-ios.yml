@@ -32,4 +32,10 @@ jobs:
       run: nuget restore src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
 
     - name: Build
-      run: msbuild src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj /p:Configuration=Debug /p:Platform=AnyCPU /t:Rebuild
+      run: msbuild src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
+      
+    - name: Install dependencies
+      run: nuget restore src/Auth0.OidcClient.iOS/Auth0.OidcClient.iOS.csproj
+
+    - name: Build
+      run: msbuild src/Auth0.OidcClient.iOS/Auth0.OidcClient.iOS.csproj
