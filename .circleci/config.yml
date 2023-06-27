@@ -24,10 +24,11 @@ jobs:
             Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vs_community.exe" -OutFile "C:\vs_community.exe"
             cd "C:\"
             & "./vs_community.exe" --update --add Microsoft.VisualStudio.Workload.NetCrossPlat --nocache --wait --noUpdateInstaller --noWeb --allWorkloads --includeRecommended --includeOptional --quiet --norestart 
+      - run: Copy-Item -Path "C:\Program Files (x86)\Microsoft Visual Studio\Installer\setup.exe" -Destination "C:\"
       - run:
           name:
           command: |
-            cd "C:\Program Files (x86)\Microsoft Visual Studio\Installer\"
+            cd "C:\"
             & "./setup.exe" --update --add Microsoft.VisualStudio.Workload.NetCrossPlat --nocache --wait --noUpdateInstaller --noWeb --allWorkloads --includeRecommended --includeOptional --quiet --norestart 
       - run: dotnet build src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
       - run: dotnet build src/Auth0.OidcClient.WPF/Auth0.OidcClient.WPF.csproj
