@@ -28,7 +28,6 @@ jobs:
       with:
         dotnet-version: '6.0.x'
 
-    - run: which sdkmanager
     
     - run: ls /usr/local/bin/sdkmanager
     - run: ls /Library/Android/sdk
