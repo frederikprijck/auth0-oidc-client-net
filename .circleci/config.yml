@@ -17,22 +17,18 @@ jobs:
           name: 
           command: |
             Invoke-WebRequest -Uri https://dot.net/v1/dotnet-install.ps1 -OutFile "$env:temp/dotnet-install.ps1"; powershell -executionpolicy bypass "$env:temp/dotnet-install.ps1" -Channel 6.0
-      - run: dotnet workload search
+      - run:
+          name:
+          command: |
+            & "C:\Program Files (x86)\Microsoft Visual Studio\Installer\setup.exe" --update --add Microsoft.VisualStudio.Workload.NetCrossPlat --nocache --wait --noUpdateInstaller --noWeb --allWorkloads --includeRecommended --includeOptional --quiet --norestart 
       - run:
           name:
           command: |
             Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vs_community.exe" -OutFile "C:\vs_community.exe"
             cd "C:\"
             & "./vs_community.exe" --update --add Microsoft.VisualStudio.Workload.NetCrossPlat --nocache --wait --noUpdateInstaller --noWeb --allWorkloads --includeRecommended --includeOptional --quiet --norestart 
-      - run: Copy-Item -Path "C:\Program Files (x86)\Microsoft Visual Studio\Installer\setup.exe" -Destination "C:\"
-      - run:
-          name:
-          command: |
-            cd "C:\"
-            & "./setup.exe" --update --add Microsoft.VisualStudio.Workload.NetCrossPlat --nocache --wait --noUpdateInstaller --noWeb --allWorkloads --includeRecommended --includeOptional --quiet --norestart 
       - run: dotnet build src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
       - run: dotnet build src/Auth0.OidcClient.WPF/Auth0.OidcClient.WPF.csproj
       - run: dotnet build src/Auth0.OidcClient.Winforms/Auth0.OidcClient.Winforms.csproj
-      - run: dotnet workload install maui
       - run: dotnet build src/Auth0.OidcClient.Android/Auth0.OidcClient.Android.csproj
       - run: dotnet build src/Auth0.OidcClient.UWP/Auth0.OidcClient.UWP.csproj
