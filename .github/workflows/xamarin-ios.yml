@@ -15,7 +15,7 @@ jobs:
     - run:  ls /Library/Frameworks/Xamarin.iOS.framework/Versions/
     - name: Set default Xamarin SDK versions
       run: |
-        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.19
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=15.8
     
     - name: Set default Xcode 12.3
       run: |
