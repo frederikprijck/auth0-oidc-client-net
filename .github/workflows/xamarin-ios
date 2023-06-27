@@ -25,7 +25,7 @@ jobs:
         dotnet-version: '6.0.x'
 
     - name: Install dependencies
-      run: nuget restore <sln_file_path>
+      run: nuget restore src/Auth0.OidcClient.iOS/Auth0.OidcClient.iOS.csproj
 
     - name: Build
       run: msbuild src/Auth0.OidcClient.iOS/Auth0.OidcClient.iOS.csproj /p:Configuration=Debug /p:Platform=iPhoneSimulator /t:Rebuild
