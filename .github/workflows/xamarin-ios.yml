@@ -32,6 +32,7 @@ jobs:
     - run: ls -lsa /usr/local/Cellar/
     - run: ls -lsa /usr/local/opt/
     - run: ls -lsa /usr/local/bin/
+    - run: env
     - run: java -version
     - run: javac -version
     - run: sdkmanager --list
