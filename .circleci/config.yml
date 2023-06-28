@@ -27,6 +27,7 @@ jobs:
       - run: Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
       - run: choco install jdk8 --x86 -y
       - run: choco install android-sdk -y
+      - run: Write-Host $Env:PATH
       - run:
           name:
           command: |
@@ -34,6 +35,5 @@ jobs:
             "yes" | ./sdkmanager --licenses
             ./sdkmanager "platform-tools" "platforms;android-26"
       - run: refreshenv
-      - run: Write-Host $Env:PATH
       - run: sdkmanager list
       - run: msbuild src/Auth0.OidcClient.Android/Auth0.OidcClient.Android.csproj
