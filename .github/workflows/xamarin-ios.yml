@@ -12,17 +12,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - run:  ls /Library/Frameworks/Xamarin.Android.framework/Versions/
     - name: Set default Xamarin SDK versions
       run: |
         $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=15.8 --android=12.3
-    
     - name: Set default Xcode 14.2
       run: |
         XCODE_ROOT=/Applications/Xcode_14.2.app
         echo "MD_APPLE_SDK_ROOT=$XCODE_ROOT" >> $GITHUB_ENV
         sudo xcode-select -s $XCODE_ROOT
-
     - name: Setup .NET Core SDK 6.0.x
       uses: actions/setup-dotnet@v3
       with:
@@ -32,11 +29,8 @@ jobs:
     - name: "Set environmental variables"
       run: |
         echo "JAVA_HOME=$JAVA_HOME_11_X64" >> $GITHUB_ENV
-    - run: env
-    - run: java -version
     - run: yes | sdkmanager --licenses
     - run: sdkmanager "platform-tools" "platforms;android-26"
-    - run: ls /Users/runner/Library/Android/sdk/platforms
     - name: Install Core dependencies
       run: nuget restore src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
 
