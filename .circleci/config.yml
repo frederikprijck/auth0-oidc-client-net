@@ -13,7 +13,6 @@ jobs:
     steps:
       # Commands are run in a Windows virtual machine environment
       - checkout
-      - run: Write-Host $Env:JAVA_HOME
       - run: 
           name: 
           command: |
@@ -28,6 +27,8 @@ jobs:
       - run: Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
       - run: choco install jdk8 --x86 -y
       - run: choco install android-sdk -y
+      - run: Set-Item -Path env:JAVA_HOME -Value "C:\Program Files (x86)\Java\jdk1.8.0_211"
+      - run: Write-Host $Env:JAVA_HOME
       - run: Write-Host $Env:PATH
       - run:
           name:
