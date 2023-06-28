@@ -26,17 +26,12 @@ jobs:
       - run: java -version
       - run: Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
       - run: choco install android-sdk -y
-      - run: ls C:\Android\android-sdk\
-      - run: ls C:\Android\android-sdk\tools\
-      - run: ls C:\Android\android-sdk\tools\bin
       - run:
           name:
           command: |
             cd "C:\Android\android-sdk\tools\bin"
             "yes" | ./sdkmanager --license
             ./sdkmanager "platform-tools" "platforms;android-26"
-      - run: "yes" | & "C:\Android\android-sdk\tools\bin\sdkmanager" --license
-      - run: & "C:\Android\android-sdk\tools\bin\sdkmanager" "platform-tools" "platforms;android-26"
       - run: refreshenv
       - run: Write-Host $Env:PATH
       - run: sdkmanager list
