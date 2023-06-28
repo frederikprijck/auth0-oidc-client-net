@@ -29,6 +29,12 @@ jobs:
       - run: ls C:\Android\android-sdk\
       - run: ls C:\Android\android-sdk\tools\
       - run: ls C:\Android\android-sdk\tools\bin
+      - run:
+          name:
+          command: |
+            cd "C:\Android\android-sdk\tools\bin"
+            "yes" | ./sdkmanager --license
+            ./sdkmanager "platform-tools" "platforms;android-26"
       - run: "yes" | & "C:\Android\android-sdk\tools\bin\sdkmanager" --license
       - run: & "C:\Android\android-sdk\tools\bin\sdkmanager" "platform-tools" "platforms;android-26"
       - run: refreshenv
