@@ -30,7 +30,7 @@ jobs:
           name:
           command: |
             cd "C:\Android\android-sdk\tools\bin"
-            "yes" | ./sdkmanager --license
+            "yes" | ./sdkmanager --licenses
             ./sdkmanager "platform-tools" "platforms;android-26"
       - run: refreshenv
       - run: Write-Host $Env:PATH
