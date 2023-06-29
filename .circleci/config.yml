@@ -40,6 +40,8 @@ jobs:
             "yes" | ./sdkmanager --licenses
             ./sdkmanager "platform-tools" "platforms;android-26"
       - run: refreshenv
+      
+      - run: nuget restore src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
+      - run: msbuild src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
       - run: nuget restore src/Auth0.OidcClient.Android/Auth0.OidcClient.Android.csproj
-      - run: dotnet restore src/Auth0.OidcClient.Android/Auth0.OidcClient.Android.csproj
       - run: msbuild src/Auth0.OidcClient.Android/Auth0.OidcClient.Android.csproj
