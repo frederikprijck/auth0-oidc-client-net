@@ -24,9 +24,6 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '6.0.x'
-    - name: "Set environmental variables"
-      run: |
-        echo "JAVA_HOME=$JAVA_HOME_11_X64" >> $GITHUB_ENV
     - name: Install Core dependencies
       run: nuget restore src/Auth0.OidcClient.Core/Auth0.OidcClient.Core.csproj
 
